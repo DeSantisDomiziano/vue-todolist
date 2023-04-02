@@ -36,21 +36,27 @@
                 <strong>{{error}}</strong>
             </div>
 
-            <div class="task w-100 bg-gradient text-bg-dark p-4 rounded-4 fs-3">
+            <div class="task w-100 bg-gradient text-bg-dark p-4 rounded-4 fs-4">
                 <ul class="list-unstyled"  v-if="tasks.length > 0">
-                    <li v-for="(task,index) in tasks" class="d-flex">
-                        {{task.text}}
-                        <div class="complete ms-2" @click="completeTask(index)">
-                            <i class="fas fa-check-circle fa-sm fa-fw"></i>
+                    <li v-for="(task,index) in tasks" class="d-flex justify-content-between">
+                        <div class="todo" :class="(task.done === true) ? 'text-decoration-line-through' : '' ">
+                            {{task.text}}
+                            <input type="checkbox" name="" id="done" class="ms-3" @click="checked(index)">
+                        </div>
+                        <div class="complete" @click="completeTask(index)">
+                            <i class="fa-sharp fa-solid fa-x" style="color: red"></i>
                         </div>
                     </li>
                 </ul>
                 <p v-else>Nothing to do 😘</p>
             </div>
-            <div class="completed w-100 bg-gradient text-bg-dark p-4 rounded-4 mt-3" v-if="completed.length > 0">
+            <div class="completed w-100 bg-gradient text-bg-dark p-4 rounded-4 mt-3 fs-4" v-if="completed.length > 0">
                 <h2>Completed Tasks</h2>
                 <ul>
-                    <li v-for="task in completed">{{task}}</li>
+                    <li v-for="task in completed" class="d-flex justify-content-between">
+                        {{task.text}}
+                        <i class="fa-solid fa-check" style="color: #53ee3f;"></i>
+                    </li>
                 </ul>
             </div>
         </main>

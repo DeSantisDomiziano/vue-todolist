@@ -9,19 +9,19 @@ createApp({
         tasks: [
             {
                 text: 'learn HTML',
-                done: true
+                done: false
             },
             {
                 text: 'learn CSS',
-                done: true
+                done: false
             },
             {
                 text: 'learn JS',
-                done: true
+                done: false
             },
             {
                 text: 'learn PHP',
-                done: true
+                done: false
             }
         ],
       }
@@ -45,6 +45,17 @@ createApp({
         completeTask(i) {
             this.completed.push(this.tasks[i])
             this.tasks.splice(i, 1)
+        },
+
+        checked(i) {
+            if(this.tasks[i].done === false) {
+                this.tasks[i].done = true
+                console.log(this.tasks[i].done);
+                
+            } else {
+                this.tasks[i].done = false
+                console.log(this.tasks[i].done);
+            }
         }
     }
 }).mount('#app')
