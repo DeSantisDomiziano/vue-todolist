@@ -5,7 +5,10 @@ createApp({
       return {
         completed: [],
         error: null,
-        newTask: '',
+        newTask: {
+            text: '',
+            done: false
+        },
         tasks: [
             {
                 text: 'learn HTML',
@@ -29,13 +32,19 @@ createApp({
     methods: {
         addTasks() {
 
-            if(this.newTask.length > 5) {
+            if(this.newTask.text.length > 5) {
                 this.tasks.unshift(this.newTask)
                 //unshift pusha in prima posizione
-                this.newTask = ''
+                this.newTask = {
+                    text: '',
+                    done:false
+                }
                 this.error = null
             } else {
-                this.newTask = ''
+                this.newTask = {
+                    text: '',
+                    done:false
+                }
                 // cosi si pulisce il valore dell'input
                 this.error = 'devi mettere almeno 6 caratteri'
             }

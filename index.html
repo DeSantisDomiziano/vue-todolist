@@ -27,7 +27,7 @@
 
             <div class="add_tasks mb-3 w-100  bg-gradient text-bg-dark p-4 rounded-4">
                 <div class="d-flex justify-content-between">
-                    <input class="w-75" type="text" v-model.trim="newTask" @keyup.enter="addTasks()">
+                    <input class="w-75" type="text" v-model.trim="newTask.text" @keyup.enter="addTasks()">
                     <button @click="addTasks()" class="btn btn-success ms-2">Add</button>
                 </div>
             </div>
